@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>第六天</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="第六天">第六天</h1>
+
+<ul><li>盒模型</li>
+<li>盒子：width+height + padding(内边距) + border</li>
+<li><p>盒子与盒子之间的距离用margin</p></li>
+<li><p>margin常见问题</p>
+
+<ul>
+<li>margin塌陷问题</li></ul></li>
+</ul>
+
+<blockquote>
+  <p>当一个元素被包含在另一个元素中时，想让里面的元素距离外面元素10像素。给里面元素加margin-top:10px; 两个元素同时下移。 <br>
+  解决的方案：给父元素加overflow:hidden; <br>
+  方法二：给父元素加border  <br>
+  方法三：不给子元素加margin-top，给父元素加padding-top</p>
+</blockquote>
+
+<ul><li>margin重叠的问题</li>
+</ul>
+
+<blockquote>
+  <p>两个并列的块元素，想让两个元素上下保持距离，同时给两个元素加margin值后，他们之间的距离不是相加之和，而是取最大的数值。 <br>
+  解决办法：只设置一个方向的margin值就可以。</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs scss"><div class="hljs-line"><span class="hljs-attribute">margin-top</span>: -<span class="hljs-number">10px</span>;<span class="hljs-comment">/*值为正向下移动， 值为负向上移动*/</span>
+</div><div class="hljs-line"><span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">10px</span>;<span class="hljs-comment">/*值为正向右侧移动 值为负向左移动*/</span>
+</div></code></pre>
+
+
+
+<h2 id="浮动">浮动</h2>
+
+<ul><li>浮动语法： <br>
+<ul>
+<li>float:left/right; 具备浮动的特性</li></ul></li>
+</ul>
+
+<blockquote>
+  <ul><li>浮动元素脱离文档流，层级比不浮动的元素层级高。</li>
+  <li>浮动元素后面有块级元素时，当块级元素不设置浮动时，块级元素假装看不到浮动的元素。</li>
+  <li>当给后面元素设置浮动后，就可以看到前面的浮动元素了</li>
+  <li>具备文本特性的元素都可以看到浮动元素，这些元素自动排列在浮动元素左右。</li>
+  <li>设置左浮动，元素跑到父元素的最左侧，设置右浮动跑到父元素的最右侧。</li>
+  </ul>
+</blockquote>
+
+
+
+<h2 id="浮动造成的影响">浮动造成的影响</h2>
+
+<blockquote>
+  <p>会导致父元素的高度为0，后面的元素识别不了他的高度，就会占有他的位置。</p>
+</blockquote>
+
+
+
+<h2 id="清除浮动的方法">清除浮动的方法</h2>
+
+<ul><li>在最后一个浮动元素后面加一个空标签（块元素）在里面设置<code>clear:both;</code><strong>不常用</strong></li>
+<li>利用伪元素::after去清除默认样式</li>
+</ul>
+
+
+
+<h2 id="浮动特性">浮动特性</h2>
+
+<ul><li>元素浮动后，元素是从左到右排列的，可以设置宽高</li>
+<li>在不设置宽度和高度时，宽度和高度由内容本身决定</li>
+<li>脱离文档流，层级被提升</li>
+<li>浮动不会被继承也不会传递</li>
+<li>浮动元素之前的元素不会受浮动元素影响。</li>
+<li>两个块元素如果想让他们并排显示，两个元素都需要设置float属性；</li>
+</ul></div></body></html>
